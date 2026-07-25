@@ -26,4 +26,8 @@ TOKENS = {
         "type": "id",
         "value": "notcoin",
     },
+    "helium": {
+        "type": "id",
+        "value": "helium",
+    },
 }
