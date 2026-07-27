@@ -1,20 +1,29 @@
 import requests
+from tokens import TOKENS
 
 
-def get_prices(url):
-    try:
-        response = requests.get(url)
-        if response.status_code == 200:
-            data = response.json()
-            bitcoin_price = data["bitcoin"]["usd"]
+def get_prices():
+    prices = {}
 
-            print(f"💰 Bitcoin Price: ${bitcoin_price:,} USD")
-        else:
-            print(f"❌ Failed to fetch data. Status code: {response.status_code}")
-    except Exception as e:
-        print(f"⚠️ An error occurred: {e}")
+    for name, info in TOKENS.items():
+        if info["type"] == "id":
+            coin_id = info["value"]
+            url = f"https://api.coingecko.com/api/v3/simple/price?ids={coin_id}&vs_currencies=usd"
+
+            try:
+                response = requests.get(url, timeout=10)
+                if response.status_code == 200:
+                    data = response.json()
+                    if coin_id in data:
+                        prices[name] = data[coin_id]["usd"]
+            except Exception as e:
+                print(f"Error fetching {name}: {e}")
+
+    return prices
 
 
 if __name__ == "__main__":
-    url = "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd"
-    get_prices(url)
+    result = get_prices()
+    print("\n💰 Crypto Prices:")
+    for name, price in result.items():
+        print(f"  • {name}: ${price:,.2f} USD")
