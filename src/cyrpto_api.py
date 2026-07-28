@@ -1,5 +1,5 @@
 import requests
-from tokens import TOKENS
+from src.tokens import TOKENS
 
 
 def get_prices():
@@ -26,4 +26,4 @@ if __name__ == "__main__":
     result = get_prices()
     print("\n💰 Crypto Prices:")
     for name, price in result.items():
-        print(f"  • {name}: ${price:,.2f} USD")
+        print(f"  • {name}: ${price:,.5f} USD")
