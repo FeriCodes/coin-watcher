@@ -1,0 +1,55 @@
+/* Base background and text colors */
+body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+/* Main title styling */
+h1 {
+    color: #f39c12; /* Bitcoin-style orange color */
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+/* Table container and border */
+table {
+    border-collapse: collapse;
+    width: 80%;
+    max-width: 800px;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* Table cells */
+th, td {
+    padding: 18px 20px;
+    text-align: left;
+    border-bottom: 1px solid #333333;
+}
+
+/* Table header */
+th {
+    background-color: #2c2c2c;
+    color: #aaaaaa;
+    text-transform: uppercase;
+    font-size: 0.85em;
+    letter-spacing: 1.2px;
+}
+
+/* Hover effect for rows */
+tr:hover {
+    background-color: #2a2a2a;
+    transition: background-color 0.3s ease;
+}
+
+/* Clean up the last row border */
+tr:last-child td {
+    border-bottom: none;
+}
