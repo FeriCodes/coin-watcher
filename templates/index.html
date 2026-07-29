@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Crypto Dashboard</title>
+</head>
+<body>
+    
+    <h2>Live Cryptocurrency Prices</h2>
+    
+    <table border="1" cellpadding="10" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Coin Name</th>
+                <th>Price (USD)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Jinja2 Loop over the dictionary -->
+            {% for coin_name, coin_price in prices.items() %}
+            <tr>
+                <td>{{ coin_name | capitalize }}</td>
+                <td>{{ coin_price }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>
