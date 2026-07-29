@@ -2,8 +2,11 @@ from fastapi import FastAPI, Request
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
 from src.cyrpto_api import get_prices
+from fastapi.staticfiles import StaticFiles
 
 app = FastAPI(title="Crypto Price API", version="1.0")
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
 templates = Jinja2Templates(directory="templates")
 
 
