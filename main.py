@@ -1,12 +1,20 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
+from fastapi.templating import Jinja2Templates
+from fastapi.responses import HTMLResponse
 from src.cyrpto_api import get_prices
 
 app = FastAPI(title="Crypto Price API", version="1.0")
+templates = Jinja2Templates(directory="templates")
 
 
-@app.get("/")
-def prices():
-    return get_prices()
+@app.get("/", response_class=HTMLResponse)
+def prices(request: Request):
+    prices_data = get_prices()
+    return templates.TemplateResponse(
+        request=request,
+        name="index.html",
+        context={"request": request, "prices": prices_data},
+    )
 
 
 @app.get("/health")
