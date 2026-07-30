@@ -1,5 +1,12 @@
 import requests
 from src.tokens import TOKENS
+from datetime import datetime
+
+
+def get_time():
+    now = datetime.now()
+    # Formats to: YYYY-MM-DD HH:MM:SS
+    return now.strftime("%Y-%m-%d %H:%M:%S")
 
 
 def format_crypto_price(price: float) -> str:
