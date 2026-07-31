@@ -2,8 +2,7 @@ from fastapi import FastAPI, Request
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
-
-from src.cyrpto_api import Crypto
+from src.crypto_api import Crypto
 from src.tokens import TOKENS
 
 app = FastAPI(title="Coin Watcher", version="1.0")
@@ -15,7 +14,7 @@ templates = Jinja2Templates(directory="templates")
 @app.get("/", response_class=HTMLResponse)
 def prices(request: Request):
     crypto_app = Crypto(TOKENS)
-    prices_data = crypto_app.get_prices()
+    prices_data = crypto_app.get_all_prices()
     time = crypto_app.get_last_updated()
 
     return templates.TemplateResponse(
