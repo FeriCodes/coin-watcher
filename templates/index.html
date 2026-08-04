@@ -5,11 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Live Crypto Dashboard</title>
 
+    <!-- Link to CSS file -->
     <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+    
+    <!-- Favicon (Browser Tab Icon) -->
+    <link rel="icon" type="image/png" href="{{ url_for('static', path='icon.png') }}">
 </head>
 <body>
     
-    <h1>Live Cryptocurrency Prices</h1>
+    <!-- Header with Logo and Title -->
+    <div style="display: flex; align-items: center; gap: 15px;">
+        <img src="{{ url_for('static', path='icon.png') }}" alt="Coin Watcher Logo" width="50" height="50">
+        <h1 style="margin: 0;">Live Cryptocurrency Prices</h1>
+    </div>
 
     <!-- Last Updated Timestamp -->
     <div class="timestamp-container">
