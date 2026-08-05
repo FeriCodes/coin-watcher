@@ -2,7 +2,7 @@ from fastapi import FastAPI, Request
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
-from src.crypto_api import Crypto
+from src.coin_watcher import Crypto
 from src.tokens import TOKENS
 
 app = FastAPI(title="Coin Watcher", version="1.0")
