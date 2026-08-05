@@ -1,6 +1,11 @@
 import requests
 from datetime import datetime
 from src.tokens import TOKENS
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+CRYPTO_API = os.getenv("CRYPTO_API")
 
 
 class Crypto:
@@ -10,6 +15,8 @@ class Crypto:
         We pass the tokens dictionary here so the class is self-contained.
         """
         self.tokens = tokens_dict
+        self.api_key = CRYPTO_API
+        self.headers = {"x-cg-demo-api-key": self.api_key}
 
     @staticmethod
     def get_last_updated() -> str:
@@ -43,7 +50,7 @@ class Crypto:
 
         prices = {}
         try:
-            response = requests.get(url, timeout=10)
+            response = requests.get(url, headers=self.headers, timeout=10)
             if response.status_code == 200:
                 data = response.json()
                 for name, info in self.tokens.items():
@@ -78,7 +85,7 @@ class Crypto:
                 url = f"https://api.coingecko.com/api/v3/coins/{platform_id}/contract/{contract_address}"
 
                 try:
-                    response = requests.get(url, timeout=10)
+                    response = requests.get(url, headers=self.headers, timeout=10)
                     if response.status_code == 200:
                         data = response.json()
                         raw_price = data["market_data"]["current_price"]["usd"]
