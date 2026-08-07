@@ -42,7 +42,7 @@
     <a href="https://github.com/FeriCodes/coin-watcher"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/FeriCodes/coin-watcher">View Demo</a>
+    <a href="https://coinwatcher-bgwk.onrender.com/">View Demo</a>
     &middot;
     <a href="https://github.com/FeriCodes/coin-watcher/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     &middot;
@@ -83,7 +83,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://github.com/FeriCodes/coin-watcher)
+[![Product Name Screen Shot][product-screenshot]](https://coinwatcher-bgwk.onrender.com/)
 
 Coin Watcher is a simple Python web app that tracks live cryptocurrency prices. It's built with FastAPI on the backend and Jinja2 templates on the frontend, showing a clean, dark-themed table of coin prices with a "last updated" timestamp.
 
