@@ -24,6 +24,15 @@ def prices(request: Request):
     )
 
 
+@app.get("/api/prices")
+def get_live_prices():
+    crypto_app = Crypto(TOKENS)
+    prices_data = crypto_app.get_all_prices()
+    time = crypto_app.get_last_updated()
+
+    return {"status": "success", "prices": prices_data, "time": time}
+
+
 @app.get("/health")
 def health_check():
     return {"status": "healthy"}

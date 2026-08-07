@@ -22,7 +22,7 @@
     <!-- Last Updated Timestamp -->
     <div class="timestamp-container">
         <span class="timestamp-text">
-            Last Updated: <strong>{{ time }}</strong>
+            Last Updated: <strong id="last-updated">{{ time }}</strong>
         </span>
     </div>
     
@@ -38,11 +38,36 @@
             {% for coin_name, coin_price in prices.items() %}
             <tr>
                 <td>{{ coin_name | capitalize }}</td>
-                <td>{{ coin_price }}</td>
+                <td id="price-{{ coin_name }}">{{ coin_price }}</td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
 
+    <!-- Auto-refresh Script (AJAX) -->
+    <script>
+        setInterval(async function() {
+            try {
+                let response = await fetch('/api/prices');
+                let data = await response.json();
+                
+                if (data.status === "success") {
+                    // Update timestamp
+                    let timeElement = document.getElementById("last-updated");
+                    if (timeElement) timeElement.innerText = data.time;
+                    
+                    // Update prices
+                    for (const [coin, price] of Object.entries(data.prices)) {
+                        let priceElement = document.getElementById("price-" + coin);
+                        if (priceElement) {
+                            priceElement.innerText = price;
+                        }
+                    }
+                }
+            } catch (error) {
+                console.error("Error updating prices:", error);
+            }
+        }, 180000); // 180000 ms = 3 minutes
+    </script>
 </body>
 </html>
