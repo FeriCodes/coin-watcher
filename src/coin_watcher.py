@@ -1,6 +1,5 @@
 import requests
 from datetime import datetime
-from src.tokens import TOKENS
 import os
 from dotenv import load_dotenv
 
@@ -111,13 +110,3 @@ class Crypto:
         all_prices.update(contract_prices)
 
         return all_prices
-
-
-# این بلوک فقط زمانی اجرا می‌شه که مستقیم همین فایل رو ران کنی
-if __name__ == "__main__":
-    crypto_app = Crypto(TOKENS)
-
-    print("Fetching all prices...")
-    final_prices = crypto_app.get_all_prices()
-
-    print(final_prices)
