@@ -1,9 +1,35 @@
+import sqlite3
 from fastapi import FastAPI, Request
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from src.coin_watcher import Crypto
-from src.tokens import TOKENS
+
+
+def load_tokens():
+    conn = sqlite3.connect("tokens.db")
+    conn.row_factory = sqlite3.Row
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT symbol, name, coin_type, value, network FROM favorites")
+    rows = cursor.fetchall()
+
+    tokens = {}
+    for row in rows:
+        symbol = row["symbol"]
+        tokens[symbol] = {
+            "name": row["name"],
+            "type": row["coin_type"],
+            "value": row["value"],
+        }
+        if row["network"]:
+            tokens[symbol]["network"] = row["network"]
+    conn.close()
+    return tokens
+
+
+TOKENS = load_tokens()
+
 
 app = FastAPI(title="Coin Watcher", version="1.0")
 app.mount("/static", StaticFiles(directory="static"), name="static")
