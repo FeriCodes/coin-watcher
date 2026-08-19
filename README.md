@@ -97,6 +97,7 @@ Coin Watcher is a simple Python web app that tracks live cryptocurrency prices. 
 * [![FastAPI][FastAPI-badge]][FastAPI-url]
 * [![Uvicorn][Uvicorn-badge]][Uvicorn-url]
 * [![Jinja][Jinja-badge]][Jinja-url]
+* [![SQLite][SQLite-badge]][SQLite-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -131,6 +132,10 @@ pip install -r requirements.txt
 5. Create a `.env` file in the root directory and add your CoinGecko API key:
 ```sh
 COINGECKO_API_KEY=your_api_key_here
+```
+6. Initialize the SQLite database with your initial tokens:
+```sh
+   python scripts/db_setup.py
 ```
 
 
@@ -243,4 +248,8 @@ Project Link: [https://github.com/FeriCodes/coin-watcher](https://github.com/Fer
 [Uvicorn-badge]: https://img.shields.io/badge/uvicorn-2A2A2A?style=for-the-badge&logo=gunicorn&logoColor=white
 [Uvicorn-url]: https://www.uvicorn.org/
 [Jinja-badge]: https://img.shields.io/badge/jinja-B41717?style=for-the-badge&logo=jinja&logoColor=white
-[Jinja-url]: https://jinja.palletsprojects.com/
+[Jinja-url]: https://jinja.palletsprojects.com
+
+[SQLite-badge]: [https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white](https://img.shields.io/badge/sqlite-%2307405e.svg?
+[SQLite-badge]: https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white
+[SQLite-url]: https://www.sqlite.org/index.html
