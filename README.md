@@ -249,7 +249,5 @@ Project Link: [https://github.com/FeriCodes/coin-watcher](https://github.com/Fer
 [Uvicorn-url]: https://www.uvicorn.org/
 [Jinja-badge]: https://img.shields.io/badge/jinja-B41717?style=for-the-badge&logo=jinja&logoColor=white
 [Jinja-url]: https://jinja.palletsprojects.com
-
-[SQLite-badge]: [https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white](https://img.shields.io/badge/sqlite-%2307405e.svg?
-[SQLite-badge]: https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white
+[SQLite-badge]: https://img.shields.io/badge/sqlite-07405E?style=for-the-badge&logo=sqlite&logoColor=white
 [SQLite-url]: https://www.sqlite.org/index.html
